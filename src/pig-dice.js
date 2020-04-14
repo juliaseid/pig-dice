@@ -12,7 +12,7 @@ export function Player(name, tempScore, totalScore){
 };
 
 // expect((myPlayer.roll > 0) && (myPlayer.roll < 7)) // jest -> contains
-Player.prototype.roll = function() {
+Player.prototype.dice = function() {
   this.roll = toss();
  }
 
