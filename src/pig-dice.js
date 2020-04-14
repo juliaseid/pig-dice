@@ -1,12 +1,12 @@
-export function Player(name, roll, tempScore, totalScore){
+export function Player(name, tempScore, totalScore){
   this.name = name,
-  this.roll = roll,
   this.tempScore = tempScore,
-  this.totalScore = totalScore;
+  this.totalScore = totalScore,
+  this.roll = 0;
 }
 
   var toss = function(){
-    console.log("hello");
+
   var randomDice = Math.floor((Math.random() *6))+1;
   return randomDice;
 };
