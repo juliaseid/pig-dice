@@ -1,18 +1,32 @@
 import { Player } from '../src/pig-dice.js';
 
 describe( "Player", () => {
+  var myPlayer;
+  beforeEach(() => {
+    myPlayer = new Player ("Jim", 2, 6);  
+
+})
   
   test("should take input and creat player obj with name, role & score properties", () => {
-    var myPlayer = new Player ("Jim", 2, 6);  
     expect(myPlayer.name).toEqual("Jim");
     expect(myPlayer.tempScore).toEqual(2);
     expect(myPlayer.totalScore).toEqual(6);  
     });
     
   test ("checks that value of dice roll is within range 1-6", () => {
-    var rando = myPlayer.dice()
-    var myPlayer = new Player ("Pete", 2, 6)
-    expect(rando).toBeGreaterThan(0) && expect(myPlayer.dice()).toBeLessThan(7);
+    myPlayer.dice();
+    
+    var rando = myPlayer.roll;
+    // var myPlayer = new Player ("Pete", 2, 6)
+    expect(rando).toBeGreaterThan(0);
+    expect(rando).toBeLessThan(7);
+  });
+  
+  test ("check if roll is equal to 1", () => {
+    myPlayer.roll = 1;
+    myPlayer.scoreCheck();
+    expect(myPlayer.tempScore).toEqual(0);
+
   });
 });
 
